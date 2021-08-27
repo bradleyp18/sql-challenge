@@ -12,6 +12,7 @@ SELECT employees.emp_no,
 	ON employees.emp_no = salaries.emp_no
 	ORDER BY emp_no
 -- This block of code above could be much cleaner (as it is below) but functionallity is still there 
+
 -- ----------------------------------------------------------------------------------------------------------------------
 --List first name, last name, and hire date for employees who were hired in 1986.
 SELECT first_name, last_name, hire_date
@@ -45,7 +46,6 @@ SELECT first_name, last_name, sex
 FROM employees
 WHERE first_name = 'Hercules' AND last_name LIKE 'B%';
 
-
 -- ----------------------------------------------------------------------------------------------------------------------
 --List all employees in the Sales department, including their employee number, last name, first name,
 --and department name.
@@ -58,7 +58,6 @@ LEFT JOIN departments as d
 ON de.dept_no = d.dept_no 
 WHERE dept_name = 'Sales';
 
-
 -- ----------------------------------------------------------------------------------------------------------------------
 --List all employees in the Sales and Development departments, including their employee number, last name,
 --first name, and department name.
@@ -69,9 +68,6 @@ ON e.emp_no = de.emp_no
 LEFT JOIN departments as d
 ON de.dept_no = d.dept_no 
 WHERE dept_name = 'Sales' or dept_name = 'Development';
-
-
-
 
 -- ----------------------------------------------------------------------------------------------------------------------
 --In descending order, list the frequency count of employee last names, i.e., how many employees share each last name.

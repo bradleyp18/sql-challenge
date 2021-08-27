@@ -11,7 +11,7 @@ SELECT employees.emp_no,
 	LEFT JOIN salaries
 	ON employees.emp_no = salaries.emp_no
 	ORDER BY emp_no
-
+-- This block of code above could be much cleaner (as it is below) but functionallity is still there 
 -- ----------------------------------------------------------------------------------------------------------------------
 --List first name, last name, and hire date for employees who were hired in 1986.
 SELECT first_name, last_name, hire_date
@@ -75,8 +75,11 @@ WHERE dept_name = 'Sales' or dept_name = 'Development';
 
 -- ----------------------------------------------------------------------------------------------------------------------
 --In descending order, list the frequency count of employee last names, i.e., how many employees share each last name.
-
-
+SELECT last_name, COUNT(*)
+AS "frequency_of_last_names"
+FROM employees
+GROUP BY last_name
+ORDER BY "frequency_of_last_names" desc;
 
 -- ------------------------
 -- End of Querying Searches 

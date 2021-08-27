@@ -43,20 +43,32 @@ ON de.dept_no = d.dept_no
 --with "B."
 SELECT first_name, last_name, sex
 FROM employees
-WHERE first_name = 'Hercules' AND last_name LIKE 'B%'
+WHERE first_name = 'Hercules' AND last_name LIKE 'B%';
 
 
 -- ----------------------------------------------------------------------------------------------------------------------
 --List all employees in the Sales department, including their employee number, last name, first name,
 --and department name.
 
-
+SELECT e.emp_no, e.last_name, e.first_name, d.dept_name
+FROM employees as e
+LEFT JOIN dept_emp as de
+ON e.emp_no = de.emp_no
+LEFT JOIN departments as d
+ON de.dept_no = d.dept_no 
+WHERE dept_name = 'Sales';
 
 
 -- ----------------------------------------------------------------------------------------------------------------------
 --List all employees in the Sales and Development departments, including their employee number, last name,
 --first name, and department name.
-
+SELECT e.emp_no, e.last_name, e.first_name, d.dept_name
+FROM employees as e
+LEFT JOIN dept_emp as de
+ON e.emp_no = de.emp_no
+LEFT JOIN departments as d
+ON de.dept_no = d.dept_no 
+WHERE dept_name = 'Sales' or dept_name = 'Development';
 
 
 
